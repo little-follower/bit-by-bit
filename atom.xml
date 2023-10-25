@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>一点一滴的积累</title>
-  
+  <icon>https://www.gravatar.com/avatar/e04ad5241ab83c3d180f07d4776f6a21</icon>
   <subtitle>记录自己的成长与不负韶华</subtitle>
   <link href="http://example.com/atom.xml" rel="self"/>
   
@@ -11,7 +11,7 @@
   
   <author>
     <name>小跟班</name>
-    
+    <email>1156542315@qq.com</email>
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
