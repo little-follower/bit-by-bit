@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>一点一滴的积累</title>
+  <title>小跟班博客</title>
   <icon>https://www.gravatar.com/avatar/e04ad5241ab83c3d180f07d4776f6a21</icon>
   <subtitle>记录自己的成长与不负韶华</subtitle>
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="https://little-follower.github.io/bit-by-bit.github.io/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
+  <link href="https://little-follower.github.io/bit-by-bit.github.io/"/>
   <updated>2023-10-24T16:22:59.474Z</updated>
-  <id>http://example.com/</id>
+  <id>https://little-follower.github.io/bit-by-bit.github.io/</id>
   
   <author>
     <name>小跟班</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>hexo的基本使用</title>
-    <link href="http://example.com/2023/10/24/hello-world/"/>
-    <id>http://example.com/2023/10/24/hello-world/</id>
+    <link href="https://little-follower.github.io/bit-by-bit.github.io/2023/10/24/hello-world/"/>
+    <id>https://little-follower.github.io/bit-by-bit.github.io/2023/10/24/hello-world/</id>
     <published>2023-10-24T06:57:06.721Z</published>
     <updated>2023-10-24T16:22:59.474Z</updated>
     
@@ -33,10 +33,10 @@
     
     
     
-    <category term="hexo" scheme="http://example.com/categories/hexo/"/>
+    <category term="hexo" scheme="https://little-follower.github.io/bit-by-bit.github.io/categories/hexo/"/>
     
     
-    <category term="教程" scheme="http://example.com/tags/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://little-follower.github.io/bit-by-bit.github.io/tags/%E6%95%99%E7%A8%8B/"/>
     
   </entry>
   
