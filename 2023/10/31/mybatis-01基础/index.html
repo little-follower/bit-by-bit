@@ -1,0 +1,368 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Mybatis-基础一 | 小跟班博客</title><meta name="author" content="小跟班,1156542315@qq.com"><meta name="copyright" content="小跟班"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Mybatis框架基础 本章主要学习关于mybatis的框架介绍、介绍Mybatis、讲解结构图核心类工作流程、resources下文件打包问题、环境搭建、核心配置文件1、核心配置文件2、核心配置文件3、mapper映射文件1、mapper映射文件2。  Mybatis 的基本信息 Mybatis本是Apache的一个开源项目iBatis，2010年这个项目由apache software fou">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mybatis-基础一">
+<meta property="og:url" content="https://little-follower.github.io/bit-by-bit.github.io/2023/10/31/mybatis-01%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="小跟班博客">
+<meta property="og:description" content="Mybatis框架基础 本章主要学习关于mybatis的框架介绍、介绍Mybatis、讲解结构图核心类工作流程、resources下文件打包问题、环境搭建、核心配置文件1、核心配置文件2、核心配置文件3、mapper映射文件1、mapper映射文件2。  Mybatis 的基本信息 Mybatis本是Apache的一个开源项目iBatis，2010年这个项目由apache software fou">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://little-follower.github.io/bit-by-bit.github.io/img/eq.jpg">
+<meta property="article:published_time" content="2023-10-31T03:05:09.000Z">
+<meta property="article:modified_time" content="2023-10-31T08:29:29.308Z">
+<meta property="article:author" content="小跟班">
+<meta property="article:tag" content="Mybatis基础">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://little-follower.github.io/bit-by-bit.github.io/img/eq.jpg"><link rel="shortcut icon" href="/bit-by-bit.github.io/img/favicon.png"><link rel="canonical" href="https://little-follower.github.io/bit-by-bit.github.io/2023/10/31/mybatis-01%E5%9F%BA%E7%A1%80/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/bit-by-bit.github.io/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/bit-by-bit.github.io/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体中文","cht_to_chs":"你已切换为简体中文","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Mybatis-基础一',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-10-31 16:29:29'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/bit-by-bit.github.io/atom.xml" title="小跟班博客" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (true) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/bit-by-bit.github.io/img/eq.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/bit-by-bit.github.io/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/bit-by-bit.github.io/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/bit-by-bit.github.io/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/bit-by-bit.github.io/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/bit-by-bit.github.io/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/bit-by-bit.github.io/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/bit-by-bit.github.io/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/bit-by-bit.github.io/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/bit-by-bit.github.io/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/bit-by-bit.github.io/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/bit-by-bit.github.io/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/bit-by-bit.github.io/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/bit-by-bit.github.io/img/ant.jpg')"><nav id="nav"><span id="blog-info"><a href="/bit-by-bit.github.io/" title="小跟班博客"><span class="site-name">小跟班博客</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/bit-by-bit.github.io/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/bit-by-bit.github.io/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/bit-by-bit.github.io/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/bit-by-bit.github.io/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/bit-by-bit.github.io/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/bit-by-bit.github.io/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/bit-by-bit.github.io/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/bit-by-bit.github.io/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/bit-by-bit.github.io/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Mybatis-基础一</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-31T03:05:09.000Z" title="发表于 2023-10-31 11:05:09">2023-10-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-31T08:29:29.308Z" title="更新于 2023-10-31 16:29:29">2023-10-31</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/bit-by-bit.github.io/categories/Mybatis/">Mybatis</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Mybatis-基础一"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Mybatis框架基础"><a href="#Mybatis框架基础" class="headerlink" title="Mybatis框架基础"></a>Mybatis框架基础</h1><blockquote>
+<p>本章主要学习关于mybatis的框架介绍、介绍Mybatis、讲解结构图核心类工作流程、resources下文件打包问题、环境搭建、核心配置文件1、核心配置文件2、核心配置文件3、mapper映射文件1、mapper映射文件2。</p>
+</blockquote>
+<h2 id="Mybatis-的基本信息"><a href="#Mybatis-的基本信息" class="headerlink" title="Mybatis 的基本信息"></a>Mybatis 的基本信息</h2><ol>
+<li>Mybatis本是Apache的一个开源项目iBatis，2010年这个项目由apache software foundation迁移到google code，并且改名为Mybatis。2013年迁移到GitHub。<br>当前，最新版本是MyBatis 3.5.5，其发布时间是2020年06月04日。<br>Mybatis是一个基于Java的数据持久层<em>ORM</em>框架。把实体类和SQL语句之间建立了映射联系，是一种半自动化<em>ORM</em>实现。</li>
+</ol>
+<blockquote>
+<ul>
+<li>ORM 对象关系映射，是一种数据持久化技术<ul>
+<li>O: Object 对象&#x3D;&#x3D;&#x3D;java里的实例类（对象）</li>
+<li>R: Relation 关系&#x3D;&#x3D;&#x3D;关系型数据库表（表）</li>
+<li>M：Mapping 映射&#x3D;&#x3D;&#x3D;提供一种机制，实现映射</li>
+</ul>
+</li>
+<li>半自动化：需要写一些SQL，才能完成，指定功能<ul>
+<li>全自动化：无需使用SQL语句，直接操作实体类对象，就可以对应的操作数据库表里的数据。</li>
+<li>有全自动为什么还需要半自动化？&#x3D;&#x3D;&#x3D;多表查询的时候，分页查询的时候，全自动在进行修改的时候反而很复杂</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li><p>Mybatis支持定制化SQL，存储过程以及高级映射。</p>
+</li>
+<li><p>Mybatis可以使用简单的XML或注解来配置和映射原生信息，将接口和Java的POJOs（Plain Ordinary Java Object，普通的Java对象）映射成数据库中的记录。</p>
+<h2 id="Mybatis与传统的JDBC比较"><a href="#Mybatis与传统的JDBC比较" class="headerlink" title="Mybatis与传统的JDBC比较"></a>Mybatis与传统的JDBC比较</h2><blockquote>
+<p>Mybatis避免了几乎所有的JDBC代码和手动设置参数以及获取结果集</p>
+<ul>
+<li>传统JDBC实现根据用户名查询用户信息代码：</li>
+</ul>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Class.forName(<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span>);</span><br><span class="line"><span class="type">String</span> <span class="variable">url</span> <span class="operator">=</span> <span class="string">&quot;jdbc:mysql://localhost:3306/test&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">user</span> <span class="operator">=</span><span class="string">&quot;root&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">password</span> <span class="operator">=</span> <span class="string">&quot;root&quot;</span>;</span><br><span class="line"><span class="type">Connection</span> <span class="variable">connection</span>  <span class="operator">=</span> DriverManager.getConnection(url,user,password);</span><br><span class="line"><span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;SELECT * FROM userinfo where username = ?&quot;</span>;</span><br><span class="line"><span class="type">PreparedStatement</span> <span class="variable">statement</span> <span class="operator">=</span> connection.prepareStatement(sql);</span><br><span class="line">statement .setString(<span class="number">1</span>,<span class="string">&quot;王五&quot;</span>);</span><br><span class="line"><span class="type">ResultSet</span>  <span class="variable">rs</span> <span class="operator">=</span> statement.exctuteQuery();</span><br><span class="line"><span class="keyword">while</span>(rs.next()) &#123;</span><br><span class="line">    System.out.printLn(rs.getString(<span class="string">&quot;id&quot;</span>)+rs.getString(<span class="string">&quot;username&quot;</span>));</span><br><span class="line">&#125;</span><br><span class="line">rs.close();</span><br><span class="line">statement.close();</span><br><span class="line">connection.close;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>发现JDBC操作非常繁琐<ol>
+<li>定义数据连接参数</li>
+<li>打开数据库连接</li>
+<li>声明SQL语句</li>
+<li>预编译并执行SQL语句</li>
+<li>遍历查询结果（如果需要的话），对每一条记录进行处理</li>
+<li>处理事务</li>
+<li>关闭数据库连接</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li>以上步骤每次除了3和5步骤，其他全部是重复工作。</li>
+</ul>
+<blockquote>
+<p>Mybaits配置文件实现根据用户名查询用户信息代码：</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">&quot;test&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;findUserByName&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;java.lang.String&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;com.by.pojo.User&quot;</span>&gt;</span></span><br><span class="line">        SELECT * FROM USERINFO WHERE USERNAME LIKE &#x27;%$&#123;value&#125;%&#x27;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="为什么学习Mybatis？"><a href="#为什么学习Mybatis？" class="headerlink" title="为什么学习Mybatis？"></a>为什么学习Mybatis？</h2><ol>
+<li>为了和数据库进行交互，通常的做法是将SQL语句写在Java代码中，SQL语句和Java代码耦合在一起不利于后期维护修改，而Mybatis能够帮助我们将SQL语句和Java代码分离，方便了后期因需求变动而对SQL语句进行修改。</li>
+<li>采用<em>ORM</em>思想解决了实体对象和数据库映射的问题，对JDBC进行了分装，屏蔽了JDBC api底层访问细节，使我们不用与JDBC api打交道，就可以完成对数据库的持久化操作；同时Mybatis封装了绝大部分JDBC中参数设置和返回值接收工作，我们不需要编写大量臃肿代码。</li>
+</ol>
+<h2 id="Mybatis框架功能架构"><a href="#Mybatis框架功能架构" class="headerlink" title="Mybatis框架功能架构"></a>Mybatis框架功能架构</h2><p><img src="/bit-by-bit.github.io/img/mybatis-01/myabtisjiegoutu.png"></p>
+<blockquote>
+<p>Mybatis 框架功能架构分为三层：</p>
+<ol>
+<li>API 接口层：</li>
+<li>首先接口层使我们打交道最多的。核心对象是SqlSession,它是上层应用和Mybatis打交道的桥梁，SqlSession上定义了非常多的对数据库的操作方法。接口层在接收到调用请求的时候，会调用核心处理层的相应模块来完成具体的数据库操作。</li>
+<li>数据库处理层&#x2F;核心处理层：跟数据库操作相关的动作都是在这一层完成的。核心处理层主要做了这几件事：<ol>
+<li>把接口中传入的参数解析并且映射成JDBC类型；</li>
+<li>解析XML文件中的SQL语句，包括插入参数和动态SQL的生成；</li>
+<li>执行SQL语句；</li>
+<li>处理结果集，并映射成Java对象；</li>
+</ol>
+</li>
+<li>基础支撑层：基础支持层主要是一些抽象出来的通用的功能（实现复用），比如数据源、缓存、日志、XML解析、反射、IO、事务等等这些功能。为上层的数据处理层提供最基础的支撑。</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+<h2 id="Mybatis核心类及工作流程"><a href="#Mybatis核心类及工作流程" class="headerlink" title="Mybatis核心类及工作流程"></a>Mybatis核心类及工作流程</h2><h3 id="SqlSessionFactory"><a href="#SqlSessionFactory" class="headerlink" title="SqlSessionFactory"></a>SqlSessionFactory</h3><blockquote>
+<p>每个基于Mybatis的应用都是以一个SqlSessionFactory的实例为中心。SqlSessionFactory的实例可以通过SqlSessionFactoryBuilder获得。而SqlSessionFactoryBuilder则可以从XML配置文件或者通过Java的方式构建出SqlSessionFactory的实例。SqlSessionFactory一但被创建就应该在应用的运行期间一直存在。一个SqlSessionFactory对应配置文件中的一个环境（environment），如果你要是用读个数据库就配置多个环境分别对应一个SqlSessionFactory。</p>
+</blockquote>
+<h3 id="SqlSession"><a href="#SqlSession" class="headerlink" title="SqlSession"></a>SqlSession</h3><blockquote>
+<p>SqlSession是一个接口，它有两个实现类，分别是DefaultSqlSession（默认使用）以及SqlSessionManager。SqlSession通过内部存放的执行器（Executor）来对数据进行CRUD。此外SqlSession不是线程安全的，因为每一次操作完数据库都要调用cloes对其进行关闭，官方建议通过try-finally来保证总是关闭SqlSession。</p>
+</blockquote>
+<h3 id="Executor"><a href="#Executor" class="headerlink" title="Executor"></a>Executor</h3><blockquote>
+<p>Executor（执行器）接口有两个实现类，其中BaseExecutor有三个继承类分别是BatchExcutor（重用语句并执行批量更新），ReuseExecutor（重用预处理语句prepared statement，跟Simple的唯一区别就是内部缓存statement），SimpleExecutor（默认，每次都会创建新的statement）。以上三个就是主要的Executor、我们可以用CachingExecutor内装饰前面的三个执行器目的就是用来实现缓存。</p>
+</blockquote>
+<p><img src="/bit-by-bit.github.io/img/mybatis-01/executor.png"></p>
+<h3 id="MappedStatement"><a href="#MappedStatement" class="headerlink" title="MappedStatement"></a>MappedStatement</h3><blockquote>
+<p>MappedStatement就是用来存放我们SQL映射文件中的信息包括SQL语句，输入参数、输出参数等等。一个SQL对应一个MappedStatement对象。</p>
+</blockquote>
+<h3 id="Mybatis工作流程"><a href="#Mybatis工作流程" class="headerlink" title="Mybatis工作流程"></a>Mybatis工作流程</h3><p><img src="/bit-by-bit.github.io/img/mybatis-01/mybatiszhixingliuchen.png"></p>
+<blockquote>
+<ol>
+<li><p>加载配置文件并初始化</p>
+<p>首先在Mybatis启动的时候我们要去解析配置文件，包括全局配置文件和映射文件和映射器配置文件。全局配置文件里面包含了我们怎么控制Mybatis的行为，我们会把它们解析成一个Configuration对象。映射器配置文件包含了我们要对数据库下达的指令。也就是我们的SQL信息。然后一个SQL节点会被对应解析成一个MappedStatement对象存储在内存中。</p>
+<p>接下来就是我们操作数据的接口，他在应用程序和数据库中间。</p>
+<p>代表我们跟数据库之间的一次连接：这个这个就是SqlSession对象。我们要获得一个SqlSession对象或者说是获得一次连接会话，必须有一个会话工厂SqlSessionFactory。SqlSessionFactory里面又必须包含我们的所有的配置信息，所以我们会通过一个FactoryBuilder来创建工厂类。</p>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="2">
+<li><p>接收调用的请求</p>
+<p>接收SQL的ID和传入的参数对象</p>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="3">
+<li>处理操作请求<ol>
+<li>根据SQL的ID查找对应的MappedStatement对象。</li>
+<li>根据传入参数对象解析MappedStatement对象，得到最终要执行的SQL和执行传入参数。</li>
+<li>获取数据库连接，根据得到的最终SQL语句和执行传入参数到数据库执行，并得到执行结果。</li>
+<li>根据MappedStatement对象中的结果映射配置，对得到的执行结果进行转换处理，并得到最终的处理结果。</li>
+<li>释放连接资源。</li>
+</ol>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="4">
+<li><p>返回最终的处理结果</p>
+<p>我们知道Mybatis是对JDBC的封装，也就是意味着底层一定会出现JDBC的一些核心对象，比如执行SQL的Statement，结果集ResultSet。在Mybatis里面，SqlSession只是提供给应用一个接口，还不是SQL的真正的执行对象。其实SqlSession内部是持有了一个Executor对象，用来封装对数据库的操作。在执行器Executor执行query或者update操作的时候我们创建一系列的对象，来处理参数、执行SQL、处理结果集，这里我们把它简化成一个对象StatementHandler，（但是ExecutorStatementHandler我们都操作不到，底层源码可以看到）以上这些就是Mybatis主要的工作流程。</p>
+</li>
+</ol>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://little-follower.github.io/bit-by-bit.github.io">小跟班</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://little-follower.github.io/bit-by-bit.github.io/2023/10/31/mybatis-01%E5%9F%BA%E7%A1%80/">https://little-follower.github.io/bit-by-bit.github.io/2023/10/31/mybatis-01%E5%9F%BA%E7%A1%80/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://little-follower.github.io/bit-by-bit.github.io" target="_blank">小跟班博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/bit-by-bit.github.io/tags/Mybatis%E5%9F%BA%E7%A1%80/">Mybatis基础</a></div><div class="post_share"><div class="social-share" data-image="/bit-by-bit.github.io/img/eq.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/bit-by-bit.github.io/2023/10/24/hello-world/" title="hexo的基本使用"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">hexo的基本使用</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/bit-by-bit.github.io/img/eq.jpg" onerror="this.onerror=null;this.src='/bit-by-bit.github.io/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">小跟班</div><div class="author-info__description">灵魂的欲望是命运的先知</div></div><div class="card-info-data site-data is-center"><a href="/bit-by-bit.github.io/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/bit-by-bit.github.io/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/bit-by-bit.github.io/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/little-follower"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/little-follower" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:llittleqing@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Mybatis%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80"><span class="toc-number">1.</span> <span class="toc-text">Mybatis框架基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Mybatis-%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF"><span class="toc-number">1.1.</span> <span class="toc-text">Mybatis 的基本信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mybatis%E4%B8%8E%E4%BC%A0%E7%BB%9F%E7%9A%84JDBC%E6%AF%94%E8%BE%83"><span class="toc-number">1.2.</span> <span class="toc-text">Mybatis与传统的JDBC比较</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%AD%A6%E4%B9%A0Mybatis%EF%BC%9F"><span class="toc-number">1.3.</span> <span class="toc-text">为什么学习Mybatis？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mybatis%E6%A1%86%E6%9E%B6%E5%8A%9F%E8%83%BD%E6%9E%B6%E6%9E%84"><span class="toc-number">1.4.</span> <span class="toc-text">Mybatis框架功能架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mybatis%E6%A0%B8%E5%BF%83%E7%B1%BB%E5%8F%8A%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-number">1.5.</span> <span class="toc-text">Mybatis核心类及工作流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SqlSessionFactory"><span class="toc-number">1.5.1.</span> <span class="toc-text">SqlSessionFactory</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SqlSession"><span class="toc-number">1.5.2.</span> <span class="toc-text">SqlSession</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Executor"><span class="toc-number">1.5.3.</span> <span class="toc-text">Executor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MappedStatement"><span class="toc-number">1.5.4.</span> <span class="toc-text">MappedStatement</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mybatis%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-number">1.5.5.</span> <span class="toc-text">Mybatis工作流程</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/bit-by-bit.github.io/2023/10/31/mybatis-01%E5%9F%BA%E7%A1%80/" title="Mybatis-基础一">Mybatis-基础一</a><time datetime="2023-10-31T03:05:09.000Z" title="发表于 2023-10-31 11:05:09">2023-10-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/bit-by-bit.github.io/2023/10/24/hello-world/" title="hexo的基本使用">hexo的基本使用</a><time datetime="2023-10-24T06:57:06.721Z" title="发表于 2023-10-24 14:57:06">2023-10-24</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/bit-by-bit.github.io/img/eq.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 小跟班</div><!--if theme.footer.copyright--><!--  .framework-info--><!--    span= _p('footer.framework') + ' '--><!--    a(href='https://hexo.io')= 'Hexo'--><!--    span.footer-separator |--><!--    span= _p('footer.theme') + ' '--><!--    a(href='https://github.com/jerryc127/hexo-theme-butterfly')= 'Butterfly'--><div class="footer_custom_text">Hi, welcome to my <a href="https://little-follower.github.io/bit-by-bit.github.io">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/bit-by-bit.github.io/js/utils.js"></script><script src="/bit-by-bit.github.io/js/main.js"></script><script src="/bit-by-bit.github.io/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"></div><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"]):not([href="/music/"]):not([href="/no-pjax/"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/bit-by-bit.github.io/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
