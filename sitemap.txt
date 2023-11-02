@@ -1,3 +1,4 @@
+https://little-follower.github.io/bit-by-bit.github.io/2023/10/31/Mybatis%E7%9A%84%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/
 https://little-follower.github.io/bit-by-bit.github.io/2023/10/31/mybatis-01%E5%9F%BA%E7%A1%80/
 https://little-follower.github.io/bit-by-bit.github.io/Gallery/ai/index.html
 https://little-follower.github.io/bit-by-bit.github.io/Gallery/index.html
@@ -6,7 +7,7 @@ https://little-follower.github.io/bit-by-bit.github.io/categories/index.html
 https://little-follower.github.io/bit-by-bit.github.io/tags/index.html
 https://little-follower.github.io/bit-by-bit.github.io/2023/10/24/hello-world/
 https://little-follower.github.io/bit-by-bit.github.io
-https://little-follower.github.io/bit-by-bit.github.io/tags/%E6%95%99%E7%A8%8B/
 https://little-follower.github.io/bit-by-bit.github.io/tags/Mybatis%E5%9F%BA%E7%A1%80/
-https://little-follower.github.io/bit-by-bit.github.io/categories/hexo/
+https://little-follower.github.io/bit-by-bit.github.io/tags/%E6%95%99%E7%A8%8B/
 https://little-follower.github.io/bit-by-bit.github.io/categories/Mybatis/
+https://little-follower.github.io/bit-by-bit.github.io/categories/hexo/
