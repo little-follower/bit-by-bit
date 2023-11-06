@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://little-follower.github.io/bit-by-bit.github.io/2023/11/03/Mybatis%E5%9F%BA%E7%A1%8001-%E6%A0%B8%E5%BF%83%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%BA%8C/</loc>
+    
+    <lastmod>2023-11-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://little-follower.github.io/bit-by-bit.github.io/2023/11/02/Mybatis%E5%9F%BA%E7%A1%8001-%E6%A0%B8%E5%BF%83%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</loc>
     
     <lastmod>2023-11-03</lastmod>
@@ -85,7 +94,7 @@
 
   <url>
     <loc>https://little-follower.github.io/bit-by-bit.github.io</loc>
-    <lastmod>2023-11-03</lastmod>
+    <lastmod>2023-11-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -93,14 +102,14 @@
   
   <url>
     <loc>https://little-follower.github.io/bit-by-bit.github.io/tags/Mybatis%E5%9F%BA%E7%A1%80/</loc>
-    <lastmod>2023-11-03</lastmod>
+    <lastmod>2023-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://little-follower.github.io/bit-by-bit.github.io/tags/%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2023-11-03</lastmod>
+    <lastmod>2023-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -109,14 +118,14 @@
   
   <url>
     <loc>https://little-follower.github.io/bit-by-bit.github.io/categories/Mybatis/</loc>
-    <lastmod>2023-11-03</lastmod>
+    <lastmod>2023-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://little-follower.github.io/bit-by-bit.github.io/categories/hexo/</loc>
-    <lastmod>2023-11-03</lastmod>
+    <lastmod>2023-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
