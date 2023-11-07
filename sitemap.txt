@@ -1,3 +1,4 @@
+https://little-follower.github.io/bit-by-bit.github.io/2023/11/07/Mybatis02-%E5%8E%9F%E5%A7%8B%E6%A8%A1%E5%BC%8F%E5%BC%80%E5%8F%91dao%E5%B1%82/
 https://little-follower.github.io/bit-by-bit.github.io/2023/11/07/Mybatis%E5%9F%BA%E7%A1%8001-XML%E6%98%A0%E5%B0%84%E5%99%A8/
 https://little-follower.github.io/bit-by-bit.github.io/2023/11/03/Mybatis%E5%9F%BA%E7%A1%8001-%E6%A0%B8%E5%BF%83%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%BA%8C/
 https://little-follower.github.io/bit-by-bit.github.io/2023/11/02/Mybatis%E5%9F%BA%E7%A1%8001-%E6%A0%B8%E5%BF%83%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/
