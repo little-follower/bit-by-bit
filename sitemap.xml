@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://little-follower.github.io/bit-by-bit.github.io/2023/11/10/MyBatis%E5%9F%BA%E7%A1%8001-%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/</loc>
+    
+    <lastmod>2023-11-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://little-follower.github.io/bit-by-bit.github.io/2023/11/08/RabbitMQ%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5%E4%BB%A5%E5%8F%8AAMQP%E5%8D%8F%E8%AE%AE/</loc>
     
     <lastmod>2023-11-09</lastmod>
