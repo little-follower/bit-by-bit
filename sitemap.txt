@@ -1,3 +1,4 @@
+https://little-follower.github.io/bit-by-bit.github.io/2024/01/09/MyBatis03-%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2/
 https://little-follower.github.io/bit-by-bit.github.io/2024/01/09/MyBatis03-resultMap%E5%AE%9E%E7%8E%B0%E4%B8%80%E5%AF%B9%E5%A4%9A/
 https://little-follower.github.io/bit-by-bit.github.io/2024/01/09/MyBatis03-resultType%E5%AE%9E%E7%8E%B0%E4%B8%80%E5%AF%B9%E4%B8%80/
 https://little-follower.github.io/bit-by-bit.github.io/2023/11/10/Mybatis02-%E5%8A%A8%E6%80%81SQL/

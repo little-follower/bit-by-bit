@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://little-follower.github.io/bit-by-bit.github.io/2024/01/09/MyBatis03-%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2/</loc>
+    
+    <lastmod>2024-02-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://little-follower.github.io/bit-by-bit.github.io/2024/01/09/MyBatis03-resultMap%E5%AE%9E%E7%8E%B0%E4%B8%80%E5%AF%B9%E5%A4%9A/</loc>
     
     <lastmod>2024-01-09</lastmod>
@@ -175,7 +184,7 @@
 
   <url>
     <loc>https://little-follower.github.io/bit-by-bit.github.io</loc>
-    <lastmod>2024-01-09</lastmod>
+    <lastmod>2024-02-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -183,21 +192,21 @@
   
   <url>
     <loc>https://little-follower.github.io/bit-by-bit.github.io/tags/Mybatis%E5%9F%BA%E7%A1%80/</loc>
-    <lastmod>2024-01-09</lastmod>
+    <lastmod>2024-02-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://little-follower.github.io/bit-by-bit.github.io/tags/RabbitMQ%E5%9F%BA%E7%A1%80/</loc>
-    <lastmod>2024-01-09</lastmod>
+    <lastmod>2024-02-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://little-follower.github.io/bit-by-bit.github.io/tags/%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2024-01-09</lastmod>
+    <lastmod>2024-02-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -206,21 +215,21 @@
   
   <url>
     <loc>https://little-follower.github.io/bit-by-bit.github.io/categories/Mybatis/</loc>
-    <lastmod>2024-01-09</lastmod>
+    <lastmod>2024-02-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://little-follower.github.io/bit-by-bit.github.io/categories/RabbitMQ/</loc>
-    <lastmod>2024-01-09</lastmod>
+    <lastmod>2024-02-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://little-follower.github.io/bit-by-bit.github.io/categories/hexo/</loc>
-    <lastmod>2024-01-09</lastmod>
+    <lastmod>2024-02-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
